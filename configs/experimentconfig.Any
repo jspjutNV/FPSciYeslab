@@ -45,6 +45,11 @@
     blockCompleteFeedback = "";
 
     weapon = "pistol",
+
+    // Scene settings
+    scene = {
+        name = "YESLAB Simple Hallway";
+    };
     
     // weapon settings
     weapon = {

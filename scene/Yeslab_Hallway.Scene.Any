@@ -124,7 +124,7 @@
 
         light1 = Light {
             attenuation = ( 0, 0, 1 ); 
-            bulbPower = Power3(200,200,200);
+            bulbPower = Power3(100,100,100);
             type = "OMNI";
             shadowsEnabled = false;
             frame = CFrame::fromXYZYPRDegrees(40.0, -2.2, -8.0, -90, 0, 0 ); 
@@ -132,7 +132,7 @@
         
         light2 = Light {
             attenuation = ( 0, 0, 1 ); 
-            bulbPower = Power3(200,200,200);
+            bulbPower = Power3(100,100,100);
             type = "OMNI";
             shadowsEnabled = false;
             frame = CFrame::fromXYZYPRDegrees(40.0, -2.2, 8.0, -90, 0, 0 ); 

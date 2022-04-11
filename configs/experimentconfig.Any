@@ -111,8 +111,8 @@
             hitSound = "";
             destroyedSound = "fpsci_ding_100ms.wav";
             modelSpec = ArticulatedModel::Specification{
-                filename = "model/target/sphere.obj";
-            }
+                filename = "model/target/mid_poly_sphere.obj";
+            };
         },
         {
             id = "straight_fly";

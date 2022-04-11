@@ -76,6 +76,12 @@
         Color3(0.2,0.2,0.2),
         Color3(0.8,0.8,0.8)
     );
+
+    // Target color settings - increase this for high contrast
+    targetHealthColors = (
+        Color3(0.00, 0.00, 0.00),
+        Color3(0.00, 0.00, 0.00)
+    );
     
     // session settings
     sessions = (

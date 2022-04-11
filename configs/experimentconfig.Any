@@ -1,0 +1,153 @@
+// Sample of a spider shot task based on the '1HIT' task as in Spjut et al. 2019. 
+// See https://research.nvidia.com/publication/2019-11_Latency-of-30
+// Use this to design your own experiment if you want to use similar tasks/conditions.
+// Latency indicator is disabled by default for latency measurement, but specified for use if desired
+
+{
+    // global settings
+    showMenuBetweenSessions = False;
+    logToSingleDb = True;
+    clearMissDecalsWithReference = True;
+    showReferenceTargetMissDecals = True;
+
+    // Refresh rate and latency to be configured by users for their specific environment
+    //frameRate = 240;
+    frameDelay = 0;
+
+    // Zero out feedback and pretrial duration
+    feedbackDuration = 0.0; // Time allocated for providing user feedback
+    pretrialDuration = 0.0; // Time allocated for preparing for trial
+    maxTrialDuration = 1000000.0; // Maximum duration allowed for completion of the task
+    
+    // Reference target config
+    referenceTargetSize = 0.05;                                     // Size the reference target
+    referenceTargetHitSound = "sound/fpsci_destroy_150ms.wav";      // Choose between hit and destroy sound
+    referenceTargetPlayFireSound = true;                            // Play fire sound for all targets
+    clearMissDecalsWithReference = false;                           // Don't clear decals after reference (will clear per trial)
+
+    // Feedback settings
+
+    // No per-trial feedback
+    trialFeedbackDuration = 0.0;
+    trialSuccessFeedback = "";          // Clear this string to avoid feedback message
+    trialFailureFeedback = "";          // Clear this string to avoid feedback message 
+
+    // Initial message for experiment
+    referenceTargetInitialFeedback = "Use left mouse click to clear the reference targets (red) and test targets (green) as quickly as possible!";
+    
+    // Session-level feedback
+    sessionFeedbackDuration = 5.0;
+    sessionCompleteFeedback = "Session complete! Moving to next session.";
+    allSessionsCompleteFeedback = "All Sessions Complete! Thank you for participating in this experiment.";
+    
+    
+    //blockCompleteFeedback = "Block %lastBlock of %totalBlocks completed. Your score so far is %totalTimeLeftS.\nStarting Block %currBlock.";
+    blockCompleteFeedback = "";
+
+    weapon = "pistol",
+    
+    // weapon settings
+    weapon = {
+        id = "pistol";
+        firePeriod = 0.2;
+        autoFire = False;
+        damagePerSecond = 5.0;
+        maxAmmo = 3600;
+    };
+
+    // UI settings
+    showHUD = True;
+    renderWeaponStatus = True;
+    cooldownMode = "ring";
+    cooldownInnerRadius = 40.0;
+    cooldownColor = Color4(1.0,1.0,1.0,0.8);
+    
+    // LDAT settings
+    renderClickPhoton = False;
+    clickPhotonSide = "left";
+    clickPhotonSize = Point2(0.05,0.095);
+    clickPhotonVertPos = 0.5;
+    clickPhotonColors = (
+        Color3(0.2,0.2,0.2),
+        Color3(0.8,0.8,0.8)
+    );
+    
+    // session settings
+    sessions = (
+        {
+            id = "spidershot_test";
+            blockCount = 8;
+            trials = (
+                {ids = ("static"), count = 10},
+            );
+        },
+    );
+
+    // target settings
+    targets = (
+        {
+            id = "static";
+            destSpace = "player";
+            elevationLocked = False;
+            speed = ( 0, 0 );
+            visualSize = ( 0.05, 0.05 );
+            eccH = ( 7.0, 15.0 );
+            eccV = ( 0.0, 15.0 );
+            motionChangePeriod = ( 1000000, 1000000 );
+            jumpEnabled = False;
+            hitSound = "";
+            modelSpec = ArticulatedModel::Specification{
+                filename = "model/target/sphere.obj";
+            }
+        },
+        {
+            id = "straight_fly";
+            destSpace = "player";
+            elevationLocked = False;
+            speed = ( 8, 15 );
+            visualSize = ( 0.02, 0.02 );
+            eccH = ( 5.0, 15.0 );
+            eccV = ( 0.0, 1.0 );
+            motionChangePeriod = ( 1000000, 1000000 );
+            jumpEnabled = False;
+        },
+        {
+            id = "stray_fly_hard";
+            destSpace = "player";
+            elevationLocked = False;
+            speed = ( 8, 15 );
+            visualSize = ( 0.02, 0.02 );
+            eccH = ( 5.0, 15.0 );
+            eccV = ( 0.0, 1.0 );
+            motionChangePeriod = ( 0.5, 0.6 );
+            jumpEnabled = False;
+        },
+        {
+            id = "stray_fly_easy";
+            destSpace = "player";
+            elevationLocked = False;
+            speed = ( 8, 15 );
+            visualSize = ( 0.02, 0.02 );
+            eccH = ( 5.0, 15.0 );
+            eccV = ( 0.0, 1.0 );
+            motionChangePeriod = ( 1.0, 1.2 );
+            jumpEnabled = False;
+        },
+        {
+            id = "strafe_jump";
+            destSpace = "player";
+            elevationLocked = true;
+            speed = ( 8, 15 );
+            visualSize = ( 0.02, 0.02 );
+            eccH = ( 5.0, 15.0 );
+            eccV = ( 0.0, 1.0 );
+            motionChangePeriod = ( 0.2, 0.8 );
+            jumpEnabled = true;
+            distance = ( 20, 25);
+            jumpPeriod = ( 0.3, 0.8 );
+            jumpSpeed = (7, 7);
+            accelGravity = (20, 20);
+        },
+    );
+
+}

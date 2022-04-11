@@ -57,7 +57,7 @@
         firePeriod = 0.2;
         autoFire = False;
         damagePerSecond = 5.0;
-        maxAmmo = 3600;
+        maxAmmo = 1;
     };
 
     // UI settings

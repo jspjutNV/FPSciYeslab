@@ -1,4 +1,4 @@
-set FPSCI_VERSION=v22.02.01
+set FPSCI_VERSION=v22.04.01
 
 @REM Get FPSci build
 echo Downloading FPSci

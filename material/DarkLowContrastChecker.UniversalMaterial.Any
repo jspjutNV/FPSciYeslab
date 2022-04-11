@@ -1,0 +1,7 @@
+UniversalMaterial::Specification {
+    lambertian = Texture::Specification {
+        filename = "low-contrast-checker-huge-1024x1024.png";
+        encoding = Color3(0.02,0.02,0.02); 
+    };
+    glossy = Color4(0,0,0,0);
+}

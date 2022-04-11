@@ -21,7 +21,8 @@
     
     // Reference target config
     referenceTargetSize = 0.05;                                     // Size the reference target
-    referenceTargetHitSound = "sound/fpsci_destroy_150ms.wav";      // Choose between hit and destroy sound
+    referenceTargetHitSound = "sound/fpsci_ding_100ms.wav";      // Choose between hit and destroy sound
+    referenceTargetHitSoundVol = 0.5;
     referenceTargetPlayFireSound = true;                            // Play fire sound for all targets
     clearMissDecalsWithReference = false;                           // Don't clear decals after reference (will clear per trial)
 
@@ -58,6 +59,7 @@
         autoFire = False;
         damagePerSecond = 5.0;
         maxAmmo = 1;
+        fireSound = "";
     };
 
     // UI settings
@@ -107,6 +109,7 @@
             motionChangePeriod = ( 1000000, 1000000 );
             jumpEnabled = False;
             hitSound = "";
+            destroyedSound = "fpsci_ding_100ms.wav";
             modelSpec = ArticulatedModel::Specification{
                 filename = "model/target/sphere.obj";
             }

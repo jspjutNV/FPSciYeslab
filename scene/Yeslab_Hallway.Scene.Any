@@ -252,27 +252,27 @@
                 setMaterial("eq2_floor_06b-LM0", "LowContrastChecker.UniversalMaterial.Any");
                 setMaterial("eq2_bigmet_01-LM0", "LowContrastChecker.UniversalMaterial.Any");
                 setMaterial("eq2_floor_05-LM0", UniversalMaterial::Specification { 
-                        glossy = Color4(0, 0, 0, 0 ); 
-                        lambertian = Texture::Specification {
-                            filename = "low-contrast-checker-huge-1024x1024.png";
-                            encoding = Color3(0.25,0.18,0.09); 
-                        };
-                    } ); 
+                    glossy = Color4(0, 0, 0, 0 ); 
+                    lambertian = Texture::Specification {
+                        filename = "low-contrast-checker-huge-1024x1024.png";
+                        encoding = Color3(0.02,0.02,0.02); 
+                    };
+                } ); 
                 setMaterial("eq2_floor_04-LM0", UniversalMaterial::Specification { 
                     glossy = Color4(0, 0, 0, 0 ); 
-                lambertian = Texture::Specification {
-                    filename = "low-contrast-checker-huge-1024x1024.png";
-                encoding = Color3(0.25,0.18,0.09); 
-                };
-                    } ); 
+                    lambertian = Texture::Specification {
+                        filename = "low-contrast-checker-huge-1024x1024.png";
+                        encoding = Color3(0.02,0.02,0.02); 
+                    };
+                } ); 
                 
                 setMaterial("rockground-LM0", UniversalMaterial::Specification { 
                     glossy = Color4(0, 0, 0, 0 ); 
                     lambertian = Texture::Specification {
                         filename = "low-contrast-checker-huge-1024x1024.png";
-                        encoding = Color3(0.25,0.18,0.09); 
+                        encoding = Color3(0.02,0.02,0.02); 
                     };
-                    } ); 
+                } ); 
                 setMaterial("cubelight_32_blue_s_15k-LM0", Color3(1));
 
                 mergeAll("ALL", "ALL");

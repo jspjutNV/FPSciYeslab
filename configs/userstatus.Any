@@ -1,12 +1,12 @@
 { 
     currentUser = "Sample User"; 
-    sessions = ("spidershot_test");
+    sessions = ("spidershot_test", "high_contrast", "large", "fast");
     settingsVersion = 1;
     users = (
         { 
             completedSessions = ( ); 
             id = "Sample User"; 
-            sessions = ("spidershot_test");
+            sessions = ("spidershot_test", "high_contrast", "large", "fast");
         },
     );
 }  

@@ -21,7 +21,7 @@
             // even if not specified and filled with the default.
             // If you prefer to use a specified camera frame, you can specify which camera to use
             // in the experiment config as long as there's no `PlayerEntity` in the scene config.
-            frame = CFrame::fromXYZYPRDegrees(46.0, -2.2, 0.0, -90, 0, 0 ); 
+            frame = CFrame::fromXYZYPRDegrees(2.2, 6.5, 2.5, 90, 0, 0);
         };
 		
 		camera = Camera {
@@ -127,7 +127,7 @@
             bulbPower = Power3(100,100,100);
             type = "OMNI";
             shadowsEnabled = false;
-            frame = CFrame::fromXYZYPRDegrees(40.0, -2.2, -8.0, -90, 0, 0 ); 
+            frame = CFrame::fromXYZYPRDegrees(7.2, 10.5, 7.5, 90, 0, 0);
         };
         
         light2 = Light {
@@ -135,7 +135,23 @@
             bulbPower = Power3(100,100,100);
             type = "OMNI";
             shadowsEnabled = false;
-            frame = CFrame::fromXYZYPRDegrees(40.0, -2.2, 8.0, -90, 0, 0 ); 
+            frame = CFrame::fromXYZYPRDegrees(-3.8, 10.5, 7.5, 90, 0, 0);
+        };
+
+        light3 = Light {
+            attenuation = ( 0, 0, 1 ); 
+            bulbPower = Power3(100,100,100);
+            type = "OMNI";
+            shadowsEnabled = false;
+            frame = CFrame::fromXYZYPRDegrees(7.2, 10.5, -2.5, 90, 0, 0);
+        };
+        
+        light4 = Light {
+            attenuation = ( 0, 0, 1 ); 
+            bulbPower = Power3(100,100,100);
+            type = "OMNI";
+            shadowsEnabled = false;
+            frame = CFrame::fromXYZYPRDegrees(-3.8, 10.5, -2.5, 90, 0, 0);
         };
                 
     }; 

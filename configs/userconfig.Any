@@ -1,12 +1,15 @@
 { 
-    settingsVersion = 1; 
-    users = ( 
+    "settingsVersion": 1, 
+    "users": [ 
         { 
-            id = "Sample User"; 
-            mouseDegPerMillimeter = 1.8;
-            invertY = false; 
-            mouseDPI = 800; 
-        },
-    ); 
+            "id": "semaphore_custom", 
+            "mouseDPI": 1000, 
+            "mouseDegPerMillimeter": 1.62
+        }, 
+        { 
+            "id": "semaphore_default", 
+            "mouseDPI": 1000, 
+            "mouseDegPerMillimeter": 1
+        } ]
     
 } 

@@ -1,12 +1,18 @@
 { 
-    currentUser = "Sample User"; 
-    sessions = ("spidershot_test", "high_contrast", "large", "fast");
-    settingsVersion = 1;
-    users = (
+    "allowRepeat": true, 
+    "currentUser": "semaphore_custom", 
+    "sessions": [ "calib", "prac", "ssw", "ssg", "slw", "slg", "fsw", "fsg", "flw", "flg", "svsw"], 
+    "settingsVersion": 1, 
+    "users": [ 
         { 
-            completedSessions = ( ); 
-            id = "Sample User"; 
-            sessions = ("spidershot_test", "high_contrast", "large", "fast");
-        },
-    );
-}  
+            "completedSessions": [ "prac", "calib", "fsw", "calib", "svsw", "calib"], 
+            "id": "semaphore_custom", 
+            "sessions": [ "prac", "calib", "fsw", "calib", "svsw", "calib", "ssg", "calib", "flw", "calib", "flg", "calib", "ssw", "calib", "slw", "calib", "fsg", "calib", "slg", "calib", "slg", "calib", "flw", "calib", "fsg", "calib", "flg", "calib", "fsw", "calib", "svsw", "calib", "slw", "calib", "ssg", "calib", "ssw", "calib"]
+        }, 
+        { 
+            "completedSessions": [ ], 
+            "id": "semaphore_default", 
+            "sessions": [ "prac", "calib", "ssw", "calib", "ssg", "calib", "slg", "calib", "flg", "calib", "slw", "calib", "fsg", "calib", "fsw", "calib", "flw", "calib", "svsw", "calib", "ssw", "calib", "slg", "calib", "slw", "calib", "fsg", "calib", "flw", "calib", "flg", "calib", "ssg", "calib", "svsw", "calib", "fsw", "calib"]
+        } ]
+    
+} 

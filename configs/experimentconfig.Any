@@ -11,7 +11,7 @@
     showReferenceTargetMissDecals = True;
 
     // Refresh rate and latency to be configured by users for their specific environment
-    //frameRate = 240;
+    frameRate = 240;
     frameDelay = 0;
 
     // Zero out feedback and pretrial duration
@@ -34,10 +34,10 @@
     trialFailureFeedback = "";          // Clear this string to avoid feedback message 
 
     // Initial message for experiment
-    referenceTargetInitialFeedback = "Use left mouse click to clear the reference targets (red) and test targets (green) as quickly as possible!";
+    referenceTargetInitialFeedback = "Eliminate targets (white/gray) as QUICKLY and ACCURATELY as possible!";
     
     // Session-level feedback
-    sessionFeedbackDuration = 5.0;
+    sessionFeedbackDuration = 3.0;
     sessionCompleteFeedback = "Session complete! Moving to next session.";
     allSessionsCompleteFeedback = "All Sessions Complete! Thank you for participating in this experiment.";
     
@@ -78,145 +78,324 @@
         Color3(0.2,0.2,0.2),
         Color3(0.8,0.8,0.8)
     );
+
+    // Crosshair
+    reticleColor = [
+        Color4(0.0, 2.0, 0.0, 2.0),
+        Color4(0.0, 2.0, 0.0, 2.0),
+    ];
+
+    // Target color settings - increase this for high contrast
+    //targetHealthColors = (
+    //    Color3(1.00, 1.00, 1.00),
+    //    Color3(1.00, 1.00, 1.00)
+    //);
     
     // session settings
     sessions = (
         {
-            id = "spidershot_test";
-            blockCount = 6;
+            id = "ssw";
+            blockCount = 1;
             trials = (
-                {ids = ("static_black"), count = 10},
+                {ids = ("static_small_white"), count = 60},
             );
         },
         {
-            id = "high_contrast";
-            blockCount = 6;
+            id = "ssg";
+            blockCount = 1;
             trials = (
-                {ids = ("static_white"), count = 10},
+                {ids = ("static_small_gray"), count = 60},
             );
         },
         {
-            id = "large";
-            blockCount = 6;
+            id = "slw";
+            blockCount = 1;
             trials = (
-                {ids = ("static_large"), count = 10},
+                {ids = ("static_large_white"), count = 60},
             );
         },
         {
-            id = "fast";
-            blockCount = 6;
+            id = "slg";
+            blockCount = 1;
             trials = (
-                {ids = ("fast"), count = 10},
+                {ids = ("static_large_gray"), count = 60},
             );
         },
+        {
+            id = "fsw";
+            blockCount = 1;
+            trials = (
+                {ids = ("fast_small_white"), count = 60},
+            );
+        },
+        {
+            id = "fsg";
+            blockCount = 1;
+            trials = (
+                {ids = ("fast_small_gray"), count = 60},
+            );
+        },
+        {
+            id = "flw";
+            blockCount = 1;
+            trials = (
+                {ids = ("fast_large_white"), count = 60},
+            );
+        },
+        {
+            id = "flg";
+            blockCount = 1;
+            trials = (
+                {ids = ("fast_large_gray"), count = 60},
+            );
+        },
+        {
+            id = "svsw";
+            blockCount = 1;
+            trials = (
+                {ids = ("static_very_small_white"), count = 60},
+            );
+        },
+        {
+            id = "prac";
+            blockCount = 1;
+            referenceTargetInitialFeedback = "This is practice session. Try to click 15 random targets!";
+            trials = (
+                {ids = ("practice_target"), count = 15},
+            );
+        },
+        {
+            id = "calib";
+            blockCount = 1;
+            noReferenceTargetInitialFeedback = "PLEASE GAZE AT WHITE TARGET (Left click to proceed))";
+            maxTrialDuration = 20;
+            showReferenceTarget = false;
+            sessionFeedbackDuration = 0.0;
+            turnScale = Vector2(0, 0);
+            reticleScale = (0, 0);
+            missDecal = False;
+            renderWeaponStatus = False;
+            weapon = { 
+                id = "pistol";
+                firePeriod = 10000;
+                autoFire = False;
+                damagePerSecond = 0.0;
+                maxAmmo = 10000;
+                fireSound = "";
+            };
+            trials = (
+                {ids = ("calib_points"), count = 1},
+            )
+        }
     );
 
     // target settings
     targets = (
         {
-            id = "static_black";
+            id = "calib_points";
+            destSpace = "world";
+            elevationLocked = False;
+            visualSize = ( 0.04784, 0.04784 );
+            destinations = (
+                {t = 0.0, xyz = Vector3(3.149545, 6.78003, 2.5)},
+                {t = 1.5, xyz = Vector3(3.149545, 6.78003, 2.5)},
+                {t = 1.8, xyz = Vector3(3.149545, 6.78003, 2.0)},
+                {t = 3.3, xyz = Vector3(3.149545, 6.78003, 2.0)},
+                {t = 3.6, xyz = Vector3(3.149545, 7.18003, 1.7)},
+                {t = 5.1, xyz = Vector3(3.149545, 7.18003, 1.7)},
+                {t = 5.4, xyz = Vector3(3.149545, 7.18003, 2.23333)},
+                {t = 6.9, xyz = Vector3(3.149545, 7.18003, 2.23333)},
+                {t = 7.2, xyz = Vector3(3.149545, 7.18003, 2.76666)},
+                {t = 8.7, xyz = Vector3(3.149545, 7.18003, 2.76666)},
+                {t = 9.0, xyz = Vector3(3.149545, 7.18003, 3.3)},
+                {t = 10.5, xyz = Vector3(3.149545, 7.18003, 3.3)},
+                {t = 10.8, xyz = Vector3(3.149545, 6.78003, 3.0)},
+                {t = 12.3, xyz = Vector3(3.149545, 6.78003, 3.0)},
+                {t = 12.6, xyz = Vector3(3.149545, 6.38003, 3.3)},
+                {t = 14.1, xyz = Vector3(3.149545, 6.38003, 3.3)},
+                {t = 14.4, xyz = Vector3(3.149545, 6.38003, 2.76666)},
+                {t = 15.9, xyz = Vector3(3.149545, 6.38003, 2.76666)},
+                {t = 16.2, xyz = Vector3(3.149545, 6.38003, 2.23333)},
+                {t = 17.7, xyz = Vector3(3.149545, 6.38003, 2.23333)},
+                {t = 18.0, xyz = Vector3(3.149545, 6.38003, 1.7)},
+                {t = 19.5, xyz = Vector3(3.149545, 6.38003, 1.7)},
+            );
+            jumpEnabled = False;
+            hitSound = "";
+            modelSpec = ArticulatedModel::Specification{
+                filename = "model/target/mid_poly_sphere.obj";
+            };
+            colors = (Color3(10, 10, 10), Color3(10, 10, 10));
+        },
+        {
+            id = "practice_target";
+            destSpace = "player";
+            elevationLocked = False;
+            speed = ( 0, 20 );
+            visualSize = ( 0.0878, 0.0878 );
+            eccH = ( 2.0, 37.0 );
+            eccV = ( 1.0, 21.0 );
+            motionChangePeriod = ( 1000000, 1000000 );
+            jumpEnabled = False;
+            hitSound = "";
+            destroyedSound = "fpsci_ding_100ms.wav";
+            modelSpec = ArticulatedModel::Specification{
+                filename = "model/target/mid_poly_sphere.obj";
+            };
+            colors = (Color3(10, 10, 10), Color3(10, 10, 10));
+        },
+        {
+            id = "static_very_small_white";
             destSpace = "player";
             elevationLocked = False;
             speed = ( 0, 0 );
-            visualSize = ( 0.04, 0.04 ); // about 9 cm on a 24.5" display
-            eccH = ( 7.0, 15.0 );
-            eccV = ( 0.0, 15.0 );
+            visualSize = ( 0.016, 0.016 );
+            eccH = ( 2.0, 37.0 );
+            eccV = ( 1.0, 21.0 );
             motionChangePeriod = ( 1000000, 1000000 );
             jumpEnabled = False;
             hitSound = "";
             destroyedSound = "fpsci_ding_100ms.wav";
-            colors = (Color3(0, 0, 0), Color3(0, 0, 0));
             modelSpec = ArticulatedModel::Specification{
                 filename = "model/target/mid_poly_sphere.obj";
             };
+            colors = (Color3(10, 10, 10), Color3(10, 10, 10));
         },
         {
-            id = "static_white";
+            id = "static_small_white";
             destSpace = "player";
             elevationLocked = False;
             speed = ( 0, 0 );
-            visualSize = ( 0.04, 0.04 );
-            eccH = ( 7.0, 15.0 );
-            eccV = ( 0.0, 15.0 );
+            visualSize = ( 0.04784, 0.04784 );
+            eccH = ( 2.0, 37.0 );
+            eccV = ( 1.0, 21.0 );
             motionChangePeriod = ( 1000000, 1000000 );
             jumpEnabled = False;
             hitSound = "";
             destroyedSound = "fpsci_ding_100ms.wav";
-            colors = (Color3(1, 1, 1), Color3(1, 1, 1));
             modelSpec = ArticulatedModel::Specification{
                 filename = "model/target/mid_poly_sphere.obj";
             };
+            colors = (Color3(10, 10, 10), Color3(10, 10, 10));
         },
         {
-            id = "static_large";
+            id = "static_small_gray";
             destSpace = "player";
             elevationLocked = False;
             speed = ( 0, 0 );
-            visualSize = ( 0.12, 0.12 ); // About 24 cm on a 24.5" display
-            eccH = ( 7.0, 15.0 );
-            eccV = ( 0.0, 15.0 );
+            visualSize = ( 0.04784, 0.04784 );
+            eccH = ( 2.0, 37.0 );
+            eccV = ( 1.0, 21.0 );
             motionChangePeriod = ( 1000000, 1000000 );
             jumpEnabled = False;
             hitSound = "";
             destroyedSound = "fpsci_ding_100ms.wav";
-            colors = (Color3(0, 0, 0), Color3(0, 0, 0));
             modelSpec = ArticulatedModel::Specification{
                 filename = "model/target/mid_poly_sphere.obj";
             };
+            colors = (Color3(0.15, 0.15, 0.15), Color3(0.15, 0.15, 0.15));
         },
         {
-            id = "fast";
+            id = "static_large_white";
             destSpace = "player";
             elevationLocked = False;
-            speed = ( 20, 20 );
-            visualSize = ( 0.04, 0.04 );
-            eccH = ( 7.0, 15.0 );
-            eccV = ( 0.0, 1.0 );
+            speed = ( 0, 0 );
+            visualSize = ( 0.12758, 0.12758 );
+            eccH = ( 2.0, 37.0 );
+            eccV = ( 1.0, 21.0 );
             motionChangePeriod = ( 1000000, 1000000 );
             jumpEnabled = False;
             hitSound = "";
             destroyedSound = "fpsci_ding_100ms.wav";
-            colors = (Color3(0, 0, 0), Color3(0, 0, 0));
             modelSpec = ArticulatedModel::Specification{
                 filename = "model/target/mid_poly_sphere.obj";
             };
+            colors = (Color3(10, 10, 10), Color3(10, 10, 10));
         },
         {
-            id = "stray_fly_hard";
+            id = "static_large_gray";
             destSpace = "player";
             elevationLocked = False;
-            speed = ( 8, 15 );
-            visualSize = ( 0.02, 0.02 );
-            eccH = ( 5.0, 15.0 );
-            eccV = ( 0.0, 1.0 );
-            motionChangePeriod = ( 0.5, 0.6 );
+            speed = ( 0, 0 );
+            visualSize = ( 0.12758, 0.12758 );
+            eccH = ( 2.0, 37.0 );
+            eccV = ( 1.0, 21.0 );
+            motionChangePeriod = ( 1000000, 1000000 );
             jumpEnabled = False;
+            hitSound = "";
+            destroyedSound = "fpsci_ding_100ms.wav";
+            modelSpec = ArticulatedModel::Specification{
+                filename = "model/target/mid_poly_sphere.obj";
+            };
+            colors = (Color3(0.15, 0.15, 0.15), Color3(0.15, 0.15, 0.15));
         },
         {
-            id = "stray_fly_easy";
+            id = "fast_small_white";
             destSpace = "player";
             elevationLocked = False;
-            speed = ( 8, 15 );
-            visualSize = ( 0.02, 0.02 );
-            eccH = ( 5.0, 15.0 );
-            eccV = ( 0.0, 1.0 );
-            motionChangePeriod = ( 1.0, 1.2 );
+            speed = ( 38.8656, 38.8656 );
+            visualSize = ( 0.04784, 0.04784 );
+            eccH = ( 2.0, 37.0 );
+            eccV = ( 1.0, 21.0 );
+            motionChangePeriod = ( 1000000, 1000000 );
             jumpEnabled = False;
+            hitSound = "";
+            destroyedSound = "fpsci_ding_100ms.wav";
+            modelSpec = ArticulatedModel::Specification{
+                filename = "model/target/mid_poly_sphere.obj";
+            };
+            colors = (Color3(10, 10, 10), Color3(10, 10, 10));
         },
         {
-            id = "strafe_jump";
+            id = "fast_small_gray";
             destSpace = "player";
-            elevationLocked = true;
-            speed = ( 8, 15 );
-            visualSize = ( 0.02, 0.02 );
-            eccH = ( 5.0, 15.0 );
-            eccV = ( 0.0, 1.0 );
-            motionChangePeriod = ( 0.2, 0.8 );
-            jumpEnabled = true;
-            distance = ( 20, 25);
-            jumpPeriod = ( 0.3, 0.8 );
-            jumpSpeed = (7, 7);
-            accelGravity = (20, 20);
+            elevationLocked = False;
+            speed = ( 38.8656, 38.8656 );
+            visualSize = ( 0.04784, 0.04784 );
+            eccH = ( 2.0, 37.0 );
+            eccV = ( 1.0, 21.0 );
+            motionChangePeriod = ( 1000000, 1000000 );
+            jumpEnabled = False;
+            hitSound = "";
+            destroyedSound = "fpsci_ding_100ms.wav";
+            modelSpec = ArticulatedModel::Specification{
+                filename = "model/target/mid_poly_sphere.obj";
+            };
+            colors = (Color3(0.15, 0.15, 0.15), Color3(0.15, 0.15, 0.15));
+        },
+        {
+            id = "fast_large_white";
+            destSpace = "player";
+            elevationLocked = False;
+            speed = ( 38.8656, 38.8656 );
+            visualSize = ( 0.12758, 0.12758 );
+            eccH = ( 2.0, 37.0 );
+            eccV = ( 1.0, 21.0 );
+            motionChangePeriod = ( 1000000, 1000000 );
+            jumpEnabled = False;
+            hitSound = "";
+            destroyedSound = "fpsci_ding_100ms.wav";
+            modelSpec = ArticulatedModel::Specification{
+                filename = "model/target/mid_poly_sphere.obj";
+            };
+            colors = (Color3(10, 10, 10), Color3(10, 10, 10));
+        },
+        {
+            id = "fast_large_gray";
+            destSpace = "player";
+            elevationLocked = False;
+            speed = ( 38.8656, 38.8656 );
+            visualSize = ( 0.12758, 0.12758 );
+            eccH = ( 2.0, 37.0 );
+            eccV = ( 1.0, 21.0 );
+            motionChangePeriod = ( 1000000, 1000000 );
+            jumpEnabled = False;
+            hitSound = "";
+            destroyedSound = "fpsci_ding_100ms.wav";
+            modelSpec = ArticulatedModel::Specification{
+                filename = "model/target/mid_poly_sphere.obj";
+            };
+            colors = (Color3(0.15, 0.15, 0.15), Color3(0.15, 0.15, 0.15));
         },
     );
 

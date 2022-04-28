@@ -1,7 +1,6 @@
-# Variable frame time in FPSci
+# FPSci Experiment
 
-This folder contains a [FPSci](github.com/NVLabs/FPSci) user study that spawns 80 targets in 8 blocks of 10. 
-Each target is eliminated with 1 click and a centering target precedes each real target.
+This folder contains a [FPSci](github.com/NVLabs/FPSci) user study.
 
 ## How to run
 

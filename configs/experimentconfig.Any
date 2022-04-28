@@ -195,7 +195,7 @@
             id = "calib_points";
             destSpace = "world";
             elevationLocked = False;
-            visualSize = ( 0.04784, 0.04784 );
+            visualSize = ( 0.01, 0.01 );
             destinations = (
                 {t = 0.0, xyz = Vector3(3.149545, 6.78003, 2.5)},
                 {t = 1.5, xyz = Vector3(3.149545, 6.78003, 2.5)},
